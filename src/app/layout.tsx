@@ -34,10 +34,20 @@ export default async function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <SidebarProvider defaultOpen={defaultOpen}>
-          <AppSidebar />
+        <SidebarProvider>
+          <div className="flex h-screen w-full">
+            <AppSidebar />
+            <div className="flex flex-1 flex-col">
+              {/* Header */}
+              <header className="sticky top-0 z-10 flex h-14 items-center gap-4 border-b bg-background px-6">
+                <SidebarTrigger />
+                <h1 className="text-lg font-semibold">Task B</h1>
+              </header>
 
-          {children}
+              {/* Main content */}
+              <main className="flex-1 overflow-auto p-6">{children}</main>
+            </div>
+          </div>
         </SidebarProvider>
       </body>
     </html>
