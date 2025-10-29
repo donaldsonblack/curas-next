@@ -1,5 +1,9 @@
 import { cookies } from "next/headers";
 
+import { AuthGate } from "../auth/authGate";
+
+import { Auth } from "../auth/authProvider"
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -26,10 +30,15 @@ export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) 
+
+{
   const cookieStore = await cookies();
   const defaultOpen = cookieStore.get("sidebar_state")?.value === "true";
   return (
+
+    <Auth>
+		<AuthGate>
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
@@ -51,5 +60,8 @@ export default async function RootLayout({
         </SidebarProvider>
       </body>
     </html>
+
+		</AuthGate>
+    </Auth>
   );
 }
