@@ -1,13 +1,15 @@
+'use client'
+
 import type { ReactNode } from "react";
 import { AuthProvider } from "react-oidc-context";
 
 
 const cognitoAuthConfig = {
-	authority: import.meta.env.VITE_COGNITO_AUTHORITY,
-	client_id: import.meta.env.VITE_COGNITO_CLIENT_ID,
-  redirect_uri: import.meta.env.VITE_COGNITO_REDIRECT_URI,
-  response_type: import.meta.env.VITE_COGNITO_RESPONSE_TYPEPE,
-  scope: import.meta.env.VITE_COGNITO_SCOPE,
+	authority: process.env.NEXT_COGNITO_AUTHORITY,
+	client_id: process.env.NEXT_COGNITO_CLIENT_ID,
+  redirect_uri: process.env.NEXT_COGNITO_REDIRECT_URI,
+  response_type: process.env.NEXT_COGNITO_RESPONSE_TYPE,
+  scope: process.env.VITE_COGNITO_SCOPE,
 };
 
 interface AuthProviderProps {
