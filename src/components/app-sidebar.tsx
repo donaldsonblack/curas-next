@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 
@@ -16,26 +16,26 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown, Building2 } from "lucide-react";
+import { ChevronDown, Building2, Check } from "lucide-react";
 
 const wards = [
-	{ id: 1, name: "Surgery"},
-	{ id: 2, name: "Emergency"},
-	{ id: 3, name: "Cardiology"},
-]
+  { id: 1, name: "Surgery" },
+  { id: 2, name: "Emergency" },
+  { id: 3, name: "Cardiology" },
+];
 
 export function AppSidebar() {
-	const [selectedWard, setSelectedWard] = useState(wards[0])
+  const [selectedWard, setSelectedWard] = useState(wards[0]);
 
   return (
     <Sidebar variant="floating" collapsible="icon">
       {/*Scrollable content area*/}
       <SidebarContent>
-			{/*Logical grouping with spacing*/}
+        {/*Logical grouping with spacing*/}
         <SidebarGroup>
-				{/*List container (ul)*/}
+          {/*List container (ul)*/}
           <SidebarMenu>
-					{/*Individual list item (li) */}
+            {/*Individual list item (li) */}
             <SidebarMenuItem>
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -50,11 +50,17 @@ export function AppSidebar() {
                   align="start"
                   side="bottom"
                 >
-								{wards.map((ward) => (
-									<DropdownMenuItem key={ward.id}>
-									<span>{ward.name}</span>
-									</DropdownMenuItem>
-								))}
+                  {wards.map((ward) => (
+                    <DropdownMenuItem
+                      key={ward.id}
+                      onClick={() => setSelectedWard(ward)}
+                    >
+                      <span>{ward.name}</span>
+										{selectedWard.id === ward.id && (
+											<Check className="ml-auto h-4 w-4"/>
+										)}
+                    </DropdownMenuItem>
+									))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </SidebarMenuItem>
