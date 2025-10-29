@@ -1,3 +1,7 @@
+'use client'
+
+import { useState } from "react";
+
 import {
   Sidebar,
   SidebarContent,
@@ -21,6 +25,8 @@ const wards = [
 ]
 
 export function AppSidebar() {
+	const [selectedWard, setSelectedWard] = useState(wards[0])
+
   return (
     <Sidebar variant="floating" collapsible="icon">
       {/*Scrollable content area*/}
@@ -35,7 +41,7 @@ export function AppSidebar() {
                 <DropdownMenuTrigger asChild>
                   <SidebarMenuButton>
                     <Building2 />
-                    <span>Select Workspace</span>
+                    <span>{selectedWard.name}</span>
                     <ChevronDown className="ml-auto" />
                   </SidebarMenuButton>
                 </DropdownMenuTrigger>
