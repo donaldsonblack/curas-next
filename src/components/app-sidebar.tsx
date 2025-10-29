@@ -1,8 +1,9 @@
 import { Sidebar, SidebarContent } from "@/components/ui/sidebar"
 
+
 export function AppSidebar() {
   return (
-    <Sidebar>
+    <Sidebar variant="floating" collapsible="icon">
       <SidebarContent />
     </Sidebar>
   )
