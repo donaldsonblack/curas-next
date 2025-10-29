@@ -44,12 +44,11 @@ export function AppSidebar() {
                   align="start"
                   side="bottom"
                 >
-                  <DropdownMenuItem>
-                    <span>Acme Inc</span>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem>
-                    <span>Acme Corp.</span>
-                  </DropdownMenuItem>
+								{wards.map((ward) => (
+									<DropdownMenuItem key={ward.id}>
+									<span>{ward.name}</span>
+									</DropdownMenuItem>
+								))}
                 </DropdownMenuContent>
               </DropdownMenu>
             </SidebarMenuItem>
