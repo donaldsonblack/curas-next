@@ -16,7 +16,7 @@ interface AuthProviderProps {
   children: ReactNode;
 }
 
-export function Auth({ children }: AuthProviderProps) {
+export default function Auth({ children }: AuthProviderProps) {
   if (
     !cognitoAuthConfig.authority ||
     !cognitoAuthConfig.client_id ||
